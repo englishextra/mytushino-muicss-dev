@@ -1,47 +1,39 @@
 {
 	"home": {
-		"url": "./includes/serguei-muicss/home.html",
+		"url": "./includes/mytushino-muicss/home.html",
 		"title": "Начало"
 	},
 	"notfound": {
-		"url": "./includes/serguei-muicss/notfound.html",
+		"url": "./includes/mytushino-muicss/notfound.html",
 		"title": "Страница не найдена"
 	},
 	"hashes": [{
 			"href": "#/home",
-			"url": "./includes/serguei-muicss/home.html",
+			"url": "./includes/mytushino-muicss/home.html",
 			"title": "Начало"
 		}, {
-			"href": "#/tests_languagelink_online_test",
-			"url": "./includes/serguei-muicss/tests_languagelink_online_test.html",
-			"title": "Уровневый тест"
+			"href": "#/pets_and_animals",
+			"url": "./includes/mytushino-muicss/pets_and_animals.html",
+			"title": "Домашние животные"
 		}, {
-			"href": "#/tests_gia_ege_get_ready_for_a_run",
-			"url": "./includes/serguei-muicss/tests_gia_ege_get_ready_for_a_run.html",
-			"title": "Демо ОГЭ / ЕГЭ"
+			"href": "#/education",
+			"url": "./includes/mytushino-muicss/education.html",
+			"title": "Образование"
 		}, {
-			"href": "#/books",
-			"url": "./includes/serguei-muicss/books.html",
-			"title": "Пособия"
+			"href": "#/health_and_personal_care",
+			"url": "./includes/mytushino-muicss/health_and_personal_care.html",
+			"title": "Здоровье и красота"
 		}, {
-			"href": "#/resources",
-			"url": "./includes/serguei-muicss/resources.html",
-			"title": "Ресурсы"
+			"href": "#/sports_and_outdoors",
+			"url": "./includes/mytushino-muicss/sports_and_outdoors.html",
+			"title": "Спорт и отдых"
 		}, {
-			"href": "#/english_through_movies",
-			"url": "./includes/serguei-muicss/english_through_movies.html",
-			"title": "Фильмы без перевода"
-		}, {
-			"href": "#/schedule",
-			"url": "./includes/serguei-muicss/schedule.html",
-			"title": "Расписание"
-		}, {
-			"href": "#/map",
-			"url": "./includes/serguei-muicss/map.html",
-			"title": "Карта"
+			"href": "#/entertainment_and_media",
+			"url": "./includes/mytushino-muicss/entertainment_and_media.html",
+			"title": "Развлечения"
 		}, {
 			"href": "#/contacts",
-			"url": "./includes/serguei-muicss/contacts.html",
+			"url": "./includes/mytushino-muicss/contacts.html",
 			"title": "Контакты"
 		}
 	],

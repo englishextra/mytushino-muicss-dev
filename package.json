@@ -73,7 +73,7 @@
 	},
 	"main": "index.html",
 	"window": {
-		"title": "Английский в Тушино",
+		"title": "Услуги в Тушино",
 		"icon": "favicon-32x32.png",
 		"toolbar": true,
 		"frame": true,
