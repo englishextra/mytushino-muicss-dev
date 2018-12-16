@@ -5,6 +5,8 @@
  * @see {@link https://gulpjs.com/plugins/blackList.json}
  * @see {@link https://hackernoon.com/how-to-automate-all-the-things-with-gulp-b21a3fc96885}
  */
+var currentLibName = "mytushino-muicss";
+
 var getTimestamp = function () {
 	var dateTime = Date.now();
 	return Math.floor(dateTime / 1000);
@@ -224,11 +226,11 @@ gulp.task("browser-sync", [
 	//gulp.watch("../../fonts/roboto-mono-fontfacekit/2.0.986/scss/**/*.scss", ["compile-roboto-mono-scss"]);
 	//gulp.watch("../../cdn/highlight.js/9.12.0/scss/**/*.scss", ["compile-highlightjs-css"]);
 	gulp.watch("../../**/*.html").on("change", reload);
-	gulp.watch("../../libs/mytushino-muicss/css/*.css").on("change", reload);
-	gulp.watch("../../libs/mytushino-muicss/scss/*.scss", ["compile-libbundle-css"]);
-	gulp.watch("../../libs/mytushino-muicss/js/*.js").on("change", reload);
-	gulp.watch("../../libs/mytushino-muicss/src/*.js", ["compile-libbundle-js"]);
-	gulp.watch("../../libs/mytushino-muicss/json/*.json").on("change", reload);
+	gulp.watch("../../libs/" + currentLibName + "/css/*.css").on("change", reload);
+	gulp.watch("../../libs/" + currentLibName + "/scss/*.scss", ["compile-libbundle-css"]);
+	gulp.watch("../../libs/" + currentLibName + "/js/*.js").on("change", reload);
+	gulp.watch("../../libs/" + currentLibName + "/src/*.js", ["compile-libbundle-js"]);
+	gulp.watch("../../libs/" + currentLibName + "/json/*.json").on("change", reload);
 });
 
 gulp.task("compile-material-css", function () {
@@ -577,7 +579,7 @@ gulp.task("compile-pwabuilder-serviceworkers-js", function () {
 			var pattern = /pwabuilder-|.fixed/ig;
 			path.basename = path.basename.replace(pattern, "");
 		}))
-	.pipe(replace("pwabuilder-offline", "mytushino-muicss-offline-v" + getTimestamp()))
+	.pipe(replace("pwabuilder-offline", "" + currentLibName + "-offline-v" + getTimestamp()))
 	.pipe(babel(babelOptions))
 	.pipe(prettier(prettierOptions))
 	/* .pipe(beautify(beautifyOptions)) */
