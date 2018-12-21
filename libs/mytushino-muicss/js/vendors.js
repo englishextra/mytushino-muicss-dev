@@ -777,22 +777,20 @@
 		backdrop[_addEventListener]("click", function() {
 			_this.close();
 		});
-
-		if (isTouch) {
-			backdrop[_addEventListener]("touchstart", function() {
-				_this.close();
-			});
-		}
+		/* if (isTouch) {
+      	backdrop[_addEventListener]("touchstart", function () {
+      		_this.close();
+      	});
+      } */
 
 		this.btnClose[_addEventListener]("click", function() {
 			_this.close();
 		});
-
-		if (isTouch) {
-			this.btnClose[_addEventListener]("touchstart", function() {
-				_this.close();
-			});
-		}
+		/* if (isTouch) {
+      	this.btnClose[_addEventListener]("touchstart", function () {
+      		_this.close();
+      	});
+      } */
 
 		root[_addEventListener]("keyup", function(ev) {
 			if (27 === (ev.which || ev.keyCode)) {
@@ -1063,22 +1061,14 @@
 		};
 
 		container[_addEventListener]("click", handleImgLightboxContainer);
-
-		if (isTouch) {
-			container[_addEventListener](
-				"touchstart",
-				handleImgLightboxContainer
-			);
-		}
+		/* if (isTouch) {
+      	container[_addEventListener]("touchstart", handleImgLightboxContainer);
+      } */
 
 		btnClose[_addEventListener]("click", handleImgLightboxContainer);
-
-		if (isTouch) {
-			btnClose[_addEventListener](
-				"touchstart",
-				handleImgLightboxContainer
-			);
-		}
+		/* if (isTouch) {
+      	btnClose[_addEventListener]("touchstart", handleImgLightboxContainer);
+      } */
 
 		root[_addEventListener]("keyup", function(ev) {
 			if (27 === (ev.which || ev.keyCode)) {

@@ -16,6 +16,13 @@ var gulp = require("gulp");
 var plumber = require("gulp-plumber");
 var sass = require("gulp-sass");
 var minifyCss = require("gulp-clean-css");
+var cleanCssOptions = {
+	level: {
+		1: {
+			specialComments: 0
+		}
+	}
+};
 var uglify = require("gulp-uglify");
 var sourcemaps = require("gulp-sourcemaps");
 var rename = require("gulp-rename");
@@ -173,8 +180,8 @@ var options = {
 			"../../cdn/minigrid/3.1.1/js/minigrid.fixed.js",
 			"../../cdn/ReadMore.js/1.0.0/js/readMoreJS.fixed.js",
 			"../../cdn/ripple-js/1.4.4/js/ripple.fixed.js",
-			"../../cdn/iframe-lightbox/0.2.5/js/iframe-lightbox.fixed.js",
-			"../../cdn/img-lightbox/0.1.8/js/img-lightbox.fixed.js",
+			"../../cdn/iframe-lightbox/0.2.6/js/iframe-lightbox.fixed.js",
+			"../../cdn/img-lightbox/0.1.9/js/img-lightbox.fixed.js",
 			"../../cdn/qrjs2/0.1.7/js/qrjs2.fixed.js",
 			"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.js",
 			"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.js",
@@ -186,8 +193,8 @@ var options = {
 		scss: [
 			"../../fonts/roboto-fontfacekit/2.137/css/roboto.css",
 			"../../fonts/roboto-mono-fontfacekit/2.0.986/css/roboto-mono.css",
-			"../../cdn/iframe-lightbox/0.2.5/css/iframe-lightbox.fixed.css",
-			"../../cdn/img-lightbox/0.1.8/css/img-lightbox.fixed.css",
+			"../../cdn/iframe-lightbox/0.2.6/css/iframe-lightbox.fixed.css",
+			"../../cdn/img-lightbox/0.1.9/css/img-lightbox.fixed.css",
 			"../../cdn/mui/0.9.39/css/mui.css"
 		],
 		css: "./css",
@@ -248,7 +255,7 @@ gulp.task("compile-material-css", function () {
 	.pipe(rename(function (path) {
 			path.basename += ".min";
 		}))
-	.pipe(minifyCss())
+	.pipe(minifyCss(cleanCssOptions))
 	.pipe(sourcemaps.write("."))
 	.pipe(gulp.dest(options.material.css))
 	.pipe(reload({
@@ -271,7 +278,7 @@ gulp.task("compile-roboto-css", function () {
 	.pipe(rename(function (path) {
 			path.basename += ".min";
 		}))
-	.pipe(minifyCss())
+	.pipe(minifyCss(cleanCssOptions))
 	.pipe(sourcemaps.write("."))
 	.pipe(gulp.dest(options.roboto.css))
 	.pipe(reload({
@@ -294,7 +301,7 @@ gulp.task("compile-roboto-mono-css", function () {
 	.pipe(rename(function (path) {
 			path.basename += ".min";
 		}))
-	.pipe(minifyCss())
+	.pipe(minifyCss(cleanCssOptions))
 	.pipe(sourcemaps.write("."))
 	.pipe(gulp.dest(options.robotomono.css))
 	.pipe(reload({
@@ -317,7 +324,7 @@ gulp.task("compile-libbundle-css", function () {
 	.pipe(rename(function (path) {
 			path.basename += ".min";
 		}))
-	.pipe(minifyCss())
+	.pipe(minifyCss(cleanCssOptions))
 	.pipe(sourcemaps.write("."))
 	.pipe(gulp.dest(options.libbundle.css))
 	.pipe(reload({
@@ -362,7 +369,7 @@ gulp.task("compile-vendors-css", function () {
 	.pipe(rename(function (path) {
 			path.basename += ".min";
 		}))
-	.pipe(minifyCss())
+	.pipe(minifyCss(cleanCssOptions))
 	.pipe(sourcemaps.write("."))
 	.pipe(gulp.dest(options.vendors.css))
 	.pipe(reload({
@@ -407,7 +414,7 @@ gulp.task("compile-muicss-css", function () {
 	.pipe(rename(function (path) {
 			path.basename += ".min";
 		}))
-	.pipe(minifyCss())
+	.pipe(minifyCss(cleanCssOptions))
 	.pipe(sourcemaps.write("."))
 	.pipe(gulp.dest(options.muicss.css))
 	.pipe(reload({
@@ -430,7 +437,7 @@ gulp.task("compile-highlightjs-css", function () {
 	.pipe(rename(function (path) {
 			path.basename += ".min";
 		}))
-	.pipe(minifyCss())
+	.pipe(minifyCss(cleanCssOptions))
 	.pipe(sourcemaps.write("."))
 	.pipe(gulp.dest(options.highlightjs.css))
 	.pipe(reload({
@@ -474,7 +481,7 @@ gulp.task("compile-lightgalleryjs-css", function () {
 	.pipe(rename(function (path) {
 			path.basename += ".min";
 		}))
-	.pipe(minifyCss())
+	.pipe(minifyCss(cleanCssOptions))
 	.pipe(sourcemaps.write("."))
 	.pipe(gulp.dest(options.lightgalleryjs.css))
 	.pipe(reload({
@@ -540,7 +547,7 @@ gulp.task("compile-glightbox-css", function () {
 	.pipe(rename(function (path) {
 			path.basename += ".min";
 		}))
-	.pipe(minifyCss())
+	.pipe(minifyCss(cleanCssOptions))
 	.pipe(sourcemaps.write("."))
 	.pipe(gulp.dest(options.glightbox.css))
 	.pipe(reload({
