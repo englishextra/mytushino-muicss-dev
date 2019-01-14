@@ -637,7 +637,6 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 		var _removeEventListener = "removeEventListener";
 		var isActiveClass = "is-active";
 		var isBindedClass = "is-binded";
-		/* progressBar.increase(20); */
 
 		if (docElem && docElem[classList]) {
 			docElem[classList].remove("no-js");
@@ -2584,7 +2583,6 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 			}
 		};
 
-		var minigridItemClass = "minigrid__item";
 		appEvents.addListeners("MinigridInited", [
 			handleDataSrcIframeAll.bind(null, updateMinigridThrottled),
 			handleDataSrcImageAll.bind(null, updateMinigridThrottled),
@@ -2596,6 +2594,7 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 			manageDisqusEmbed
 		]);
 		var minigridClass = "minigrid";
+		var minigridItemClass = "minigrid__item";
 
 		var initMinigrid = function initMinigrid() {
 			var minigrid =
@@ -2630,7 +2629,7 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 
 		appEvents.addListeners("MinigridItemsFound", [initMinigrid]);
 
-		var manageMinigrid = function manageMinigrid() {
+		var manageMinigrid = function manageMinigrid(minigridClass) {
 			return new Promise(function(resolve, reject) {
 				var minigrid =
 					document[getElementsByClassName](minigridClass)[0] || "";
@@ -2727,7 +2726,7 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 
 		appEvents.addListeners("MacyImagesLoaded", [initMacy]);
 
-		var manageMacy = function manageMacy() {
+		var manageMacy = function manageMacy(macyClass) {
 			return new Promise(function(resolve, reject) {
 				var macyContainer =
 					document[getElementsByClassName](macyClass)[0] || "";
@@ -3209,6 +3208,7 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 							: "");
 
 					if (appContentParent) {
+						highlightSidedrawerItem();
 						managePrevNextLinks(jsonObj);
 						manageExternalLinkAll();
 						manageImgLightboxLinkAll("img-lightbox-link");
@@ -3216,10 +3216,9 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 						manageDropdownButtonAll();
 						manageHljsCodeAll();
 						manageRippleEffect();
-						highlightSidedrawerItem();
 						manageReadMore();
 						manageExpandingLayers();
-						manageMacy()
+						manageMacy(macyClass)
 							.then(function(result) {
 								console.log(result);
 							})
@@ -3233,7 +3232,7 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 							.catch(function(err) {
 								console.log(err);
 							});
-						manageMinigrid()
+						manageMinigrid(minigridClass)
 							.then(function(result) {
 								console.log(result);
 							})
@@ -3269,11 +3268,11 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 		);
 	};
 	/* var scripts = [
-  			"../../fonts/roboto-fontfacekit/2.137/css/roboto.css",
-  			"../../fonts/roboto-mono-fontfacekit/2.0.986/css/roboto-mono.css",
-  			"../../cdn/mui/0.9.39/css/mui.css",
-  			"../../cdn/iframe-lightbox/0.2.8/css/iframe-lightbox.fixed.css",
-  			"../../cdn/img-lightbox/0.2.1/css/img-lightbox.fixed.css"
+  		"../../fonts/roboto-fontfacekit/2.137/css/roboto.css",
+  		"../../fonts/roboto-mono-fontfacekit/2.0.986/css/roboto-mono.css",
+  		"../../cdn/iframe-lightbox/0.2.8/css/iframe-lightbox.fixed.css",
+  		"../../cdn/img-lightbox/0.2.1/css/img-lightbox.fixed.css",
+  		"../../cdn/mui/0.9.39/css/mui.css"
   ]; */
 
 	var scripts = [
@@ -3346,18 +3345,17 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 		scripts.push("./cdn/polyfills/js/polyfills.fixed.min.js");
 	}
 	/* var scripts = [
-  			"./bower_components/iframe-lightbox/iframe-lightbox.js",
-  			"../../cdn/img-lightbox/0.2.1/js/img-lightbox.fixed.js",
-  			"../../cdn/qrjs2/0.1.7/js/qrjs2.fixed.js",
-  			"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.js",
-  			"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.js",
-  			"../../cdn/resize/1.0.0/js/any-resize-event.fixed.js",
-  			"./node_modules/macy/dist/macy.js",
-  			"../../cdn/mustache/2.3.0/js/mustache.fixed.js",
-  			"../../cdn/EventEmitter/5.2.5/js/EventEmitter.fixed.js",,
-  			"../../cdn/minigrid/3.1.1/js/minigrid.fixed.js",
-  			"../../cdn/ripple-js/1.4.4/js/ripple.fixed.js",
-  			"../../cdn/ReadMore.js/1.0.0/js/readMoreJS.fixed.js"
+  		"../../cdn/minigrid/3.1.1/js/minigrid.fixed.js",
+  		"../../cdn/ReadMore.js/1.0.0/js/readMoreJS.fixed.js",
+  		"../../cdn/ripple-js/1.4.4/js/ripple.fixed.js",
+  		"../../cdn/iframe-lightbox/0.2.8/js/iframe-lightbox.fixed.js",
+  		"../../cdn/img-lightbox/0.2.1/js/img-lightbox.fixed.js",
+  		"../../cdn/qrjs2/0.1.7/js/qrjs2.fixed.js",
+  		"../../cdn/Tocca.js/2.0.1/js/Tocca.fixed.js",
+  		"../../cdn/wheel-indicator/1.1.4/js/wheel-indicator.fixed.js",
+  		"../../cdn/resize/1.0.0/js/any-resize-event.fixed.js",
+  		"../../cdn/mustache/2.3.0/js/mustache.fixed.js",
+  		"../../cdn/EventEmitter/5.2.5/js/EventEmitter.fixed.js"
   ]; */
 
 	scripts.push("./libs/mytushino-muicss/js/vendors.min.js");
@@ -3380,7 +3378,6 @@ twttr, unescape, VK, WheelIndicator, Ya*/
 				clearInterval(slot);
 				slot = null;
 			}
-			/* progressBar.increase(20); */
 
 			var load;
 			load = new loadJsCss(scripts, run);
