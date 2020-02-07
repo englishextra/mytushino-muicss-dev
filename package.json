@@ -19,7 +19,6 @@
 		"npm": "^6.10.2"
 	},
 	"devDependencies": {
-		"babel-eslint": "^10.0.3",
 		"gulp": "^4.0.0",
 		"gulp-cli": "^2.0.1",
 		"gulp-eslint": "^5.0.0"
